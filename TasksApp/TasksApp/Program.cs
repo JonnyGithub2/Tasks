@@ -13,3 +13,5 @@ Tasks.Task task2 = new Tasks.Task("this is my second task");
 board1.addTask(task2);
 Console.WriteLine(board1.listTasks());
 boardManager.addBoard(board1);
+ProgramOpen menus = new ProgramOpen(boardManager);
+menus.OnSelect();
