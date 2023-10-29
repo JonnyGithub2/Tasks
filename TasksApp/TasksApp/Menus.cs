@@ -129,19 +129,16 @@ namespace Tasks
         }
         public override void CreateMenu()
         {
-            Console.WriteLine("Overall Board view");
             _items.Clear();
             if(_isActive)
             {
+                Console.WriteLine("Overall Board view");
                 foreach(Board board in _boardManager._boards)
                 {
                     _items.Add(new BoardSelectMenuItem(board, _boardManager));
                 }
                 _items.Add(new ExitMenuMenuItem(this));
                 Select();
-            }
-            else{
-                Console.WriteLine("error");
             }
         }
         public override void Select()
@@ -152,7 +149,7 @@ namespace Tasks
                 Console.WriteLine(i + " - " + item.MenuText());
                 i++;
             }
-            int choice = MenuHelpers.MakeChoice(_items.Capacity);
+            int choice = MenuHelpers.MakeChoice(_items.Count);
             _items[choice].OnSelect();
             CreateMenu();
         }
@@ -179,10 +176,10 @@ namespace Tasks
         }
         public override void CreateMenu()
         {
-            Console.WriteLine($"Board view for board {_board.getName()}");
             _items.Clear();
             if(_isActive)
             {
+                Console.WriteLine($"Board view for board {_board.getName()}");
                 foreach(Task task in _board._tasks)
                 {
                     _items.Add(new TaskSelectMenuItem(task, _board,  _boardManager));
@@ -200,7 +197,7 @@ namespace Tasks
                 Console.WriteLine(i + " - " + item.MenuText());
                 i++;
             }
-            int choice = MenuHelpers.MakeChoice(_items.Capacity);
+            int choice = MenuHelpers.MakeChoice(_items.Count);
             _items[choice].OnSelect();
             CreateMenu();
         }
@@ -229,10 +226,10 @@ namespace Tasks
         }
         public override void CreateMenu()
         {
-            Console.WriteLine($"Task view for {_task.getName()}");
             _items.Clear();
             if(_isActive)
             {
+                Console.WriteLine($"Task view for {_task.getName()}");
                 //_items.Add(new EditTaskMenuItem(_task));
                 //_items.Add(new RemoveTaskMenuItem(_task));
                 _items.Add(new ExitMenuMenuItem(this));
@@ -248,7 +245,7 @@ namespace Tasks
                 Console.WriteLine(i + " - " + item.MenuText());
                 i++;
             }
-            int choice = MenuHelpers.MakeChoice(_items.Capacity);
+            int choice = MenuHelpers.MakeChoice(_items.Count);
             _items[choice].OnSelect();
             CreateMenu();
         }

@@ -4,7 +4,7 @@ namespace Tasks
 {
     public static class MenuHelpers
     {
-        public static int MakeChoice(int pMax, int pMin = 0)
+        public static int MakeChoice(int pMax, int pMin = 1)
         {
             do
             {
