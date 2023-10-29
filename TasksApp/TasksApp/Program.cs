@@ -1,17 +1,11 @@
 ﻿using Tasks;
-
-Console.WriteLine("Welcome to my tasks management application");
-
 BoardManager boardManager = new BoardManager();
-Tasks.Task task1 = new Tasks.Task("this is my first task");
-Console.WriteLine(task1.ToString());
-Board board1 = new Board("this is my board");
-board1.addTask(task1);
-Console.WriteLine(board1.ToString());
-Console.WriteLine(board1.listTasks());
-Tasks.Task task2 = new Tasks.Task("this is my second task");
-board1.addTask(task2);
-Console.WriteLine(board1.listTasks());
-boardManager.addBoard(board1);
+boardManager.addBoard(new Board("my board"));
+boardManager.addBoard(new Board("my other board"));
+boardManager.addBoard(new Board("my third board"));
+boardManager._boards[0].addTask(new Tasks.Task("wash dishes"));
+boardManager._boards[0].addTask(new Tasks.Task("do laundry"));
+boardManager._boards[0].addTask(new Tasks.Task("take out bins"));
+boardManager._boards[0].addTask(new Tasks.Task("grow as a person"));
 ProgramOpen menus = new ProgramOpen(boardManager);
 menus.OnSelect();
